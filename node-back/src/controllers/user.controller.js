@@ -31,3 +31,16 @@ export async function login(req, res) {
     });
   }
 }
+export async function getProfile(req, res) {
+  try {
+    const data = await userService.getProfile(req);
+    if (data)
+      return res.status(httpStatus.OK).json({
+        data: data,
+      });
+  } catch (err) {
+    return res.status(httpStatus.BAD_REQUEST).json({
+      message: err.message,
+    });
+  }
+}

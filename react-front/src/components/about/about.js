@@ -8,13 +8,13 @@ export default function aboutSide() {
       <div className={styles.containerHeader}>
         <div className={styles.titles}>
           <img
-            src="	https://opensea.io/static/images/logos/opensea.svg"
-            alt="img"
+            src='	https://opensea.io/static/images/logos/opensea.svg'
+            alt='img'
           />
-          OpenSea
+          QLSV
         </div>
         <div className={styles.info}>
-          <Link to="/log1" className={styles.his}>
+          <Link to='/signin' className={styles.his}>
             Sign in
           </Link>
           <div className={styles.img}></div>
@@ -22,22 +22,22 @@ export default function aboutSide() {
       </div>
       <div className={styles.containerBody}>
         <h1 className={styles.mainTitles}>
-          Landing template for <span>startups</span>{" "}
+          Nguyen Van Dat <span>17PFIEV3</span>{" "}
         </h1>
         <div className={styles.subTitles}>
           <span>
-            Our landing page template works on all devices, so you only have to
-            set it up once, and get beautiful results forever
+            Chuyên Đề Công Nghệ Phần Mềm
+            
           </span>
         </div>
         <div className={styles.buttonGroup}>
-          <button>Get Start</button>
-          <button>View on Github</button>
+          {/* <button>Get Start</button>
+          <button>View on Github</button> */}
         </div>
         <img
           className={styles.bodyImg}
-          src="https://cafefcdn.com/2019/8/22/edf-tempo-couleur-de-demain-la-edf-tempo-historique-couleur-jour-et-demain-15664469984471689659056.jpg"
-          alt="https://cafefcdn.com/2019/8/22/edf-tempo-couleur-de-demain-la-edf-tempo-historique-couleur-jour-et-demain-15664469984471689659056.jpg"
+          src='https://cafefcdn.com/2019/8/22/edf-tempo-couleur-de-demain-la-edf-tempo-historique-couleur-jour-et-demain-15664469984471689659056.jpg'
+          alt='https://cafefcdn.com/2019/8/22/edf-tempo-couleur-de-demain-la-edf-tempo-historique-couleur-jour-et-demain-15664469984471689659056.jpg'
         />
       </div>
     </div>

@@ -21,7 +21,6 @@ export async function signup(userData) {
   return "sign up succesfully";
 }
 export async function login(userData) {
-  console.log(EXPIRATION_TIME);
   const { email, password } = userData.body;
   const user = await User.findOne({ email: email });
   if (user && bcrypt.compareSync(password, user.password)) {
@@ -29,6 +28,11 @@ export async function login(userData) {
       expiresIn: EXPIRATION_TIME,
     });
 
-   return token;
+    return token;
   }
+}
+
+export async function getProfile(userData) {
+  const { userId } = userData;
+  return await User.findById(userId).select("-password -__v");
 }

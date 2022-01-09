@@ -14,21 +14,22 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Copyright(props) {
   return (
     <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
+      variant='body2'
+      color='text.secondary'
+      align='center'
       {...props}
     >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      {/* {"Copyright © "}
+      <Link color='inherit' href='https://mui.com/'>
         Your Website
       </Link>{" "}
       {new Date().getFullYear()}
-      {"."}
+      {"."} */}
     </Typography>
   );
 }
@@ -36,10 +37,10 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignInSide() {
+  const history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
     const signupApi = "http://localhost:3000/user/signup";
-    console.log("1");
     axios
       .post(signupApi, {
         email: email,
@@ -47,7 +48,9 @@ export default function SignInSide() {
         password: password,
       })
       .then((response) => {
-        console.log(response);
+        setTimeout(() => {
+          history.push("/signin");
+        }, 1500);
       });
   };
   const [email, setEmail] = useState("");
@@ -55,7 +58,7 @@ export default function SignInSide() {
   const [password, setPassword] = useState("");
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
+      <Grid container component='main' sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
           item
@@ -86,71 +89,68 @@ export default function SignInSide() {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography component="h1" variant="h5">
+            <Typography component='h1' variant='h5'>
               Sign up
             </Typography>
             <Box
-              component="form"
+              component='form'
               noValidate
               onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id='email'
+                label='Email Address'
+                name='email'
+                autoComplete='email'
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
                 autoFocus
               />
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                id="name"
-                label="Name"
-                name="name"
-                autoComplete="name"
+                id='name'
+                label='Name'
+                name='name'
+                autoComplete='name'
                 onChange={(e) => setName(e.target.value)}
                 autoFocus
               />
               <TextField
-                margin="normal"
+                margin='normal'
                 required
                 fullWidth
-                name="password"
-                label="Comfirm Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
+                name='password'
+                label='Password'
+                type='password'
+                id='password'
+                autoComplete='current-password'
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
+
               <Button
-                type="submit"
+                type='submit'
                 fullWidth
-                variant="contained"
+                variant='contained'
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Sign Up
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
-                    Forgot password?
+                  <Link href='#' variant='body2'>
+                    {/* Forgot password? */}
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
+                  <Link href='#' variant='body2'>
+                    {/* {"Don't have an account? Sign Up"} */}
                   </Link>
                 </Grid>
               </Grid>
